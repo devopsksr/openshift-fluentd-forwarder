@@ -1,6 +1,6 @@
 # start based on a centos image
 FROM rhel7
-#USER root
+USER root
 #COPY /run/secrets/etc-pki-entitlement/ /etc/pki/entitlement-host/
 ENV HOME=/opt/app-root/src \
   PATH=/opt/rh/rh-ruby22/root/usr/bin:/opt/app-root/src/bin:/opt/app-root/bin${PATH:+:${PATH}} \
