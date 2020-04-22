@@ -25,12 +25,6 @@ if [[ $RELEASE =~ $RED_HAT_MATCH && -z "$USE_SYSTEM_REPOS" ]]; then
   YUM_ARGS="${YUM_ARGS} --enablerepo=rhel-7-server-rpms --enablerepo=rhel-server-rhscl-7-rpms --enablerepo=rhel-7-server-optional-rpms"
 fi
 
-# enable epel when on CentOS
-CENTOS_MATCH='^CentOS.*'
-if [[ $RELEASE =~ $CENTOS_MATCH && -z "$USE_SYSTEM_REPOS" ]]; then
-  rpmkeys --import file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-  yum install -y epel-release centos-release-scl-rh
-fi
 
 # ensure latest versions
 yum update $YUM_ARGS -y
