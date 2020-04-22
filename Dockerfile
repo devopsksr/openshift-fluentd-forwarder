@@ -41,6 +41,7 @@ RUN chmod g+rx ${HOME}/fluentd-check.sh && \
 # execute files and remove when done
 #RUN /tmp/common-install.sh && \
 #    rm -f /tmp/common-*.sh
+RUN yum --disablerepo=* --enablerepo=rhel-7-server-rpms install yum-utils
 RUN subscription-manager attach --auto
 # set working dir
 WORKDIR ${HOME}
